@@ -10,3 +10,11 @@ venv/
 
 # Ignore log files
 *.log
+
+*.sqlite3
+
+*.mysql
+
+staticfiles/
+
+media/
