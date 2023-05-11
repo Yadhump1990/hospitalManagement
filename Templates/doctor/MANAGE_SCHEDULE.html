@@ -1,0 +1,40 @@
+<!--<!doctype html>-->
+<!--<html>-->
+<!--<head>-->
+<!--<meta charset="utf-8">-->
+<!--<title>MANAGE_SCHEDULE</title>-->
+<!--</head>-->
+{% extends 'doctorIndex.html' %}
+{% block body %}
+<body>
+<form id="form1" name="form1" method="post">
+  <h1>MANAGE SHEDULE</h1>
+  <table width="200" border="1">
+    <tbody>
+      <tr>
+        <th scope="col">DATE</th>
+        <th scope="col">START TIME</th>
+        <th scope="col">END TIME</th>
+        <th scope="col">MAX APPOINTMENT</th>
+        <th scope="col">&nbsp;</th>
+      </tr>
+      {% for i in val %}
+      <tr>
+        <td>{{i.date}}</td>
+        <td>{{i.startTime}}</td>
+        <td>{{i.endTime}}</td>
+        <td>{{i.maxAppointment}}</td>
+        <td><p><a href="{% url 'editSchedule' id=i.id %}">EDIT</a></p>
+        <p><a href="{% url 'delSchedule' id=i.id %}">DELETE</a></p></td>
+      </tr>
+      {% endfor %}
+      <tr>
+        <td colspan="5"><CENTER><a href="addSchedule">ADD</a></CENTER></td>
+      </tr>
+    </tbody>
+  </table>
+  <p>&nbsp;</p>
+</form>
+</body>
+<!--*</html>-->
+{% endblock %}

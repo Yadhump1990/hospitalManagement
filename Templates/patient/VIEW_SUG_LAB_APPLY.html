@@ -1,0 +1,41 @@
+<!--<!doctype html>-->
+<!--<html>-->
+<!--<head>-->
+<!--<meta charset="utf-8">-->
+<!--<title>viewSuggLab&amp;Apply</title>-->
+<!--</head>-->
+{% extends 'patientIndex.html' %}
+{% block body %}
+<body>
+<form id="form1" name="form1" method="post">
+  <h1>VIEW SUGGESTED LABTEST BY DOCTOR AND APPLY</h1>
+  <table width="200" border="1">
+    <tbody>
+      <tr>
+        <th scope="col">DOCTOR NAME</th>
+        <th scope="col">LAB NAME</th>
+        <th scope="col">TEST NAME</th>
+        <th scope="col">&nbsp;</th>
+      </tr>
+      {% for i in val %}
+      <tr>
+        <td>{{i.docId.fname}} {{i.docId.lname}}</td>
+        <td>{{i.labtesId.labId.name}}</td>
+        <td>{{i.labtesId.name}}</td>
+
+        <td>
+          {% if i.status == 'applied' %}
+          applied
+          {% else %}
+          <a href="{% url 'applySuggLab' id=i.id %}">APPLY</a>
+          {% endif %}
+        </td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+  <p>&nbsp;</p>
+</form>
+</body>
+<!--</html>-->
+{% endblock %}

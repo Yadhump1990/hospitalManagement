@@ -1,0 +1,43 @@
+<!--<!doctype html>-->
+<!--<html>-->
+<!--<head>-->
+<!--<meta charset="utf-8">-->
+<!--<title>UPLOAD_PRESCRIPTION</title>-->
+<!--</head>-->
+{% extends 'doctorIndex.html' %}
+{% block body %}
+<body>
+<form id="form1" name="form1" method="post">
+  <h1>MANAGE PRESCRIPTION</h1>
+  <table width="200" border="1">
+    <tbody>
+      <tr>
+        <th scope="col">Patient</th>
+        <th scope="col">IMAGE</th>
+        <th scope="col">DIAGNOSIS</th>
+        <th scope="col">MEDICATION</th>
+        <th scope="col">DOSAGE</th>
+        <th scope="col">DATE</th>
+        <th scope="col">&nbsp;</th>
+      </tr>
+      {% for i in val %}
+      <tr>
+        <td>{{i.patId.fname}} {{i.patId.lname}}</td>
+        <td><img src="{{i.image.url}}" width="100" height="100"/></td>
+        <td>{{i.diagnosis}}</td>
+        <td>{{i.medication}}</td>
+        <td>{{i.dosage}}</td>
+        <td>{{i.date}}</td>
+        <td><a href="{% url 'delPresc' id=i.id %}">DELETE</a></td>
+      </tr>
+      {% endfor %}
+      <tr>
+        <td colspan="5"><CENTER><a href="uploadPrescription">ADD</a></CENTER></td>
+      </tr>
+    </tbody>
+  </table>
+  <p>&nbsp;</p>
+</form>
+</body>
+<!--</html>-->
+{% endblock %}

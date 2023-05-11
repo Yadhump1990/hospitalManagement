@@ -1,0 +1,44 @@
+<!--<!doctype html>-->
+<!--<html>-->
+<!--<head>-->
+<!--<meta charset="utf-8">-->
+<!--<title>VIEW_BOOKING_UPDT</title>-->
+<!--</head>-->
+{% extends 'doctorIndex.html' %}
+{% block body %}
+<body>
+<form id="form1" name="form1" method="post">
+  <h1>VIEW BOOKING &amp; UPDATE</h1>
+  <table width="200" border="1">
+    <tbody>
+      <tr>
+        <th scope="col">PATIENT NAME</th>
+        <th scope="col">DATE</th>
+        <th scope="col">TIME</th>
+        <th scope="col">&nbsp;</th>
+      </tr>
+      {% for i in val %}
+      <tr>
+        <td>{{i.patId.fname}} {{i.patId.lname}}</td>
+        <td>{{i.date}}</td>
+        <td>{{i.time}}</td>
+
+        <td>
+          {% if i.status == 'pending' %}
+          <p><a href="{% url 'appointBook' id=i.id %}">APPOINT</a></p>
+          <p><a href="{% url 'rejectBook' id=i.id %}">REJECT</a></p>
+          {% elif i.status == 'appointed' %}
+          appointed
+          {% else %}
+          rejected
+          {% endif %}
+        </td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+  <p>&nbsp;</p>
+</form>
+</body>
+<!--</html>-->
+{% endblock %}

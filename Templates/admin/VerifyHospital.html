@@ -1,0 +1,51 @@
+<!--<!doctype html>-->
+<!--<html>-->
+<!--<head>-->
+<!--<meta charset="utf-8">-->
+<!--<title>VerifyHospitals</title>-->
+<!--</head>-->
+{% extends 'AdminIndex_inner.html' %}
+{% block body %}
+<body>
+<form id="form1" name="form1" method="post">
+  <h1>Verify Hospital</h1>
+  <table width="200" border="1">
+    <tbody>
+      <tr>
+        <th scope="col">HOSPITAL NAME</th>
+        <th scope="col">PHONE</th>
+        <th scope="col">PLACE</th>
+        <th scope="col">POST</th>
+        <th scope="col">PIN</th>
+        <th scope="col">EMAIL</th>
+        <th scope="col">&nbsp;</th>
+      </tr>
+      {% for i in val %}
+      <tr>
+        <td>{{i.hospitalname}}</td>
+        <td>{{i.phone}}</td>
+        <td>{{i.place}}</td>
+        <td>{{i.post}}</td>
+        <td>{{i.pin}}</td>
+        <td>{{i.email}}</td>
+
+        <td>
+          {% if i.lid.type == 'pending' %}
+          <p><a href="{% url 'acceptHospital' id=i.lid.id %}">Accept</a></p>
+          <p><a href="{% url 'rejectHospital' id=i.lid.id %}">Reject</a></p>
+          {% elif i.lid.type == 'hospital' %}
+          accepted
+          {% else %}
+          rejected
+          {% endif %}
+        </td>
+
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+  <p>&nbsp;</p>
+</form>
+</body>
+<!--</html>-->
+{% endblock %}

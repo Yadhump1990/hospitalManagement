@@ -1,0 +1,43 @@
+<!--<!doctype html>-->
+<!--<html>-->
+<!--<head>-->
+<!--<meta charset="utf-8">-->
+<!--<title>ADD_SCHEDULE</title>-->
+<!--</head>-->
+{% extends 'doctorIndex.html' %}
+{% block body %}
+<body>
+<form id="form1" name="form1" method="post" action="add_schedule">
+  <h1>ADD SCHEDULE</h1>
+  <table width="200" border="1">
+    <tbody>
+      <tr>
+        <th scope="row">DATE</th>
+        <td><label for="date"></label>
+          <input type="date" name="date" id="date"></td>
+      </tr>
+      <tr>
+        <th scope="row">START TIME</th>
+        <td><label for="time"></label>
+          <input type="time" name="time" id="time"></td>
+      </tr>
+      <tr>
+        <th scope="row">END TIME</th>
+        <td><label for="time2"></label>
+          <input type="time" name="time2" id="time2"></td>
+      </tr>
+      <tr>
+        <th scope="row">MAX APPOINTMENTS</th>
+        <td><label for="number"></label>
+          <input type="number" name="number" id="number"></td>
+      </tr>
+      <tr>
+        <th colspan="2" scope="row"><input type="submit" name="submit" id="submit" value="ADD"></th>
+      </tr>
+    </tbody>
+  </table>
+  <p>&nbsp;</p>
+</form>
+</body>
+<!--</html>-->
+{% endblock %}

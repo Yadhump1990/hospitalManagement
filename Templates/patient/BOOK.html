@@ -1,0 +1,61 @@
+<!--<!doctype html>-->
+<!--<html>-->
+<!--<head>-->
+<!--<meta charset="utf-8">-->
+<!--<title>BOOK</title>-->
+<!--</head>-->
+{% extends 'patientIndex.html' %}
+{% block body %}
+<body>
+<form id="form1" name="form1" method="post" action="Book">
+  <h1>BOOK</h1>
+  
+  <table width="200" border="1">
+    <tbody>
+      <tr>
+        <th scope="col">DOCTOR SCHEDULES</th>
+        <th scope="col"><label for="select"></label>
+          <select name="select" id="select">
+            {% for i in val %}
+            {% if i.id|stringformat:"s" == s|stringformat:"s" %}
+            <option value="{{i.id}}" selected>{{i.docId.fname}} {{i.docId.lname}}</option>
+            {% else %}
+            <option value="{{i.id}}">{{i.docId.fname}} {{i.docId.lname}}</option>
+            {% endif %}
+            {% endfor %}
+        </select></th>
+        <th scope="col"><input type="submit" name="submit" id="submit" value="search"></th>
+      </tr>
+    </tbody>
+  </table>
+  <p>&nbsp;</p>
+  <table width="226" border="1">
+    <tbody>
+      <tr>
+        <th width="43" scope="col">DATE</th>
+        <th width="76" scope="col">START-TIME</th>
+        <th width="85" scope="col">END-TIME</th>
+      </tr>
+      {% for i in val2 %}
+      <tr>
+        <td>{{i.date}}</td>
+        <td>{{i.startTime}}</td>
+        <td>{{i.endTime}}</td>
+      </tr>
+      {% endfor %}
+      <tr>
+        <center>
+          <td colspan="3"><input type="submit" name="submit2" id="submit2" value="book" formaction="bookSlot"></td>
+            {% if val3.status == 'appointed' %}
+              appointed on {{val3.date}}
+            {% endif %}
+        </center>
+      </tr>
+    </tbody>
+  </table>
+  <p>&nbsp;</p>
+</form>
+<p>&nbsp;</p>
+</body>
+<!--</html>-->
+{% endblock %}

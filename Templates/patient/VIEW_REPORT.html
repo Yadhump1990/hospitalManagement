@@ -1,0 +1,32 @@
+<!--<!doctype html>-->
+<!--<html>-->
+<!--<head>-->
+<!--<meta charset="utf-8">-->
+<!--<title>VIEW_REPORT_FROM_LAB</title>-->
+<!--</head>-->
+{% extends 'patientIndex.html' %}
+{% block body %}
+<body>
+<form id="form1" name="form1" method="post">
+  <h1>VIEW REPORT FROM LAB</h1>
+  <table width="200" border="1">
+    <tbody>
+      <tr>
+        <th scope="col">APPLY DATE</th>
+        <th scope="col">DATE REPORTED</th>
+        <th scope="col">RESULT</th>
+      </tr>
+      {% for i in val %}
+      <tr>
+        <td>{{i.appId.dateApplied}}</td>
+        <td>{{i.dateReported}}</td>
+        <td>{{i.result}}</td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+  <p>&nbsp;</p>
+</form>
+</body>
+<!--</html>-->
+{% endblock %}

@@ -1,0 +1,70 @@
+<!--<!doctype html>-->
+<!--<html>-->
+<!--<head>-->
+<!--<meta charset="utf-8">-->
+<!--<title>AddFacility</title>-->
+<!--</head>-->
+{% extends 'hospitalIndex.html' %}
+{% block body %}
+<body>
+<form method="post" enctype="multipart/form-data" name="form1" id="form1" action="add_facilities">
+  <h1>ADD FACILITY</h1>
+  <table width="200" border="1">
+    <tbody>
+      <tr>
+        <th scope="row">Facility Name:</th>
+        <td><label for="textfield"></label>
+        <input type="text" name="facname" id="textfield"></td>
+      </tr>
+      <tr>
+        <th scope="row">Description:</th>
+        <td><label for="textfield2"></label>
+        <input type="text" name="desc" id="textfield2"></td>
+      </tr>
+      <tr>
+        <th scope="row">IMAGE:</th>
+        <td><label for="fileField"></label>
+        <input type="file" name="image" id="fileField"></td>
+      </tr>
+      <tr>
+        <th scope="row">CAPACITY:</th>
+        <td><label for="number"></label>
+        <input type="number" name="cap" id="number"></td>
+      </tr>
+      <tr>
+        <th scope="row">Availability:</th>
+        <td><label for="number2"></label>
+          <label for="select"></label>
+          <select name="select" id="select">
+            <option value="yes">YES</option>
+            <option value="no">NO</option>
+        </select></td>
+      </tr>
+      <tr>
+        <th scope="row"><p>LOCATION(IN HOSPITAL)</p></th>
+        <td><label for="select2"></label>
+          <select name="select2" id="select2">
+            <option value="1st-floor room1">1st floor room1</option>
+            <option value="1st-floor room2">1st floor room2</option>
+            <option value="1st-floor room3">1st floor room3</option>
+            <option value="1st-floor room4">1st floor room4</option>
+            <option value="2nd-floor room1">2nd floor room1</option>
+            <option value="2nd-floor room2">2nd floor room2</option>
+            <option value="2nd-floor room3">2nd floor room3</option>
+            <option value="2nd-floor room4">2nd floor room4</option>
+            <option value="3rd-floor room1">3rd floor room1</option>
+            <option value="3rd-floor room2">3rd floor room2</option>
+            <option value="3rd-floor room3">3rd floor room3</option>
+            <option value="3rd-floor room4">3rd floor room4</option>
+        </select></td>
+      </tr>
+      <tr>
+        <th colspan="2" scope="row"><input type="submit" name="submit" id="submit" value="ADD"></th>
+      </tr>
+    </tbody>
+  </table>
+  <p>&nbsp;</p>
+</form>
+</body>
+<!--</html>-->
+{% endblock %}

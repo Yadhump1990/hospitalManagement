@@ -1,0 +1,33 @@
+<!--<!doctype html>-->
+<!--<html>-->
+<!--<head>-->
+<!--<meta charset="utf-8">-->
+<!--<title>SND_COMP_VIE_REP</title>-->
+<!--</head>-->
+{% extends 'patientIndex.html' %}
+{% block body %}
+<body>
+<form id="form1" name="form1" method="post">
+  <h1>SEND COMPLAINT &amp; VIEW REPLY</h1>
+  <table width="200" border="1">
+    <tbody>
+      <tr>
+        <th scope="col">COMPLAINT</th>
+        <th scope="col">REPLY</th>
+      </tr>
+      {% for i in val %}
+      <tr>
+        <td>{{i.complaint}}</td>
+        <td>{{i.reply}}</td>
+      </tr>
+      {% endfor %}
+      <tr>
+        <td colspan="2"><CENTER><a href="sendComp">ADD</a></CENTER></td>
+      </tr>
+    </tbody>
+  </table>
+  <p>&nbsp;</p>
+</form>
+</body>
+<!--</html>-->
+{% endblock %}

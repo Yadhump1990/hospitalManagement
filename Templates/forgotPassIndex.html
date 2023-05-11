@@ -1,0 +1,48 @@
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+{% load static %}
+<html>
+<head>
+		<meta charset="utf-8">
+		<link href="{% static 'login/css/style.css' %}" rel='stylesheet' type='text/css' />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+		<!--webfonts-->
+		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text.css'/>
+		<!--//webfonts-->
+</head>
+
+<body>
+	<div class="main">
+		<form action="password_reset" method="post">
+    		<h1> <lable> RESET PASSWORD </lable> </h1>
+  			<div class="inset">
+	  			<p>
+	    		 <label for="username">USERNAME</label>
+   	 			<input type="text" name="uname" placeholder="" required/>
+				</p>
+  				<p>
+				    <label for="emial">EMAIL</label>
+				    <input type="text" name="email" placeholder="" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" required/>
+  				</p>
+ 			 </div>
+
+			  <p class="p-container">
+			    <input type="submit" value="Submit">
+			  </p>
+<!--			<p class="p-container"> <a href="hospitalReg">Register as Hospital</a></p>-->
+<!--			<p class="p-container"> <a href="patientReg">Register as patient</a></p>-->
+		</form>
+	</div>
+			<!-----start-copyright---->
+<!--   					<div >-->
+<!--						<p class="p-container"> <a href="usr_registration">Register as user</a></p>-->
+<!--						<p class="p-container"> <a href="cntrct_registration">Register as contractor</a></p>-->
+<!--					</div>-->
+				<!-----//end-copyright---->
+</body>
+</html>

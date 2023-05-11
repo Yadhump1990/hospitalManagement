@@ -1,0 +1,32 @@
+<!--<!doctype html>-->
+<!--<html>-->
+<!--<head>-->
+<!--<meta charset="utf-8">-->
+<!--<title>AddDepartment</title>-->
+<!--</head>-->
+{% extends 'hospitalIndex.html' %}
+{% block body %}
+<body>
+<form id="form1" name="form1" method="post" action="add_department">
+  <h1>ADD DEPARTMENT</h1>
+  <table width="200" border="1">
+    <tbody>
+      <tr>
+        <th scope="row">DEPARTMENT:</th>
+        <td><label for="textfield"></label>
+        <input type="text" name="depname" id="textfield"></td>
+      </tr>
+      <tr>
+        <th scope="row">DESCRIPTION:</th>
+        <td><label for="textarea"></label>
+        <textarea name="textarea" id="textarea"></textarea></td>
+      </tr>
+      <tr>
+        <th colspan="2" scope="row"><input type="submit" name="submit" id="submit" value="ADD"></th>
+      </tr>
+    </tbody>
+  </table>
+</form>
+</body>
+<!--</html>-->
+{% endblock %}

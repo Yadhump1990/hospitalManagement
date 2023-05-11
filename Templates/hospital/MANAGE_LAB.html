@@ -1,0 +1,43 @@
+<!--<!doctype html>-->
+<!--<html>-->
+<!--<head>-->
+<!--<meta charset="utf-8">-->
+<!--<title>MANAGE_LAB</title>-->
+<!--</head>-->
+{% extends 'hospitalIndex.html' %}
+{% block body %}
+<body>
+<form id="form1" name="form1" method="post">
+  <h1>MANAGE LAB</h1>
+  <table width="200" border="1">
+    <tbody>
+      <tr>
+        <th scope="col">LAB</th>
+        <th scope="col">DESCRIPTION</th>
+        <th scope="col">IMAGE</th>
+        <th scope="col">LOCATION</th>
+        <th scope="col">CAPACITY</th>
+        <th scope="col">AVALABILITY</th>
+        <th scope="col">&nbsp;</th>
+      </tr>
+      {% for i in val %}
+      <tr>
+        <td>{{i.name}}</td>
+        <td>{{i.description}}</td>
+        <td><img src="{{i.image.url}}" width="100" height="100"/></td>
+        <td>{{i.location}}</td>
+        <td>{{i.capacity}}</td>
+        <td>{{i.availability}}</td>
+        <td><p><a href="{% url 'editLab' id=i.id %}">EDIT</a></p>
+        <p><a href="{% url 'delLab' id=i.lid.id %}">DELETE</a></p></td>
+      </tr>
+      {% endfor %}
+      <tr>
+        <td colspan="7"><center><a href="addLab">ADD</a></center></td>
+      </tr>
+    </tbody>
+  </table>
+</form>
+</body>
+<!--</html>-->
+{% endblock %}

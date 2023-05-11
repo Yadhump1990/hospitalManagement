@@ -1,0 +1,32 @@
+<!--<!doctype html>-->
+<!--<html>-->
+<!--<head>-->
+<!--<meta charset="utf-8">-->
+<!--<title>VIEW_DOCTOR_SUGGESTION</title>-->
+<!--</head>-->
+{% extends 'labIndex.html' %}
+{% block body %}
+<body>
+<form id="form1" name="form1" method="post">
+  <h1>VIEW DOCTOR SUGGESTION</h1>
+  <table width="200" border="1">
+    <tbody>
+      <tr>
+        <th scope="col">DOCTOR NAME</th>
+        <th scope="col">PATIENT NAME</th>
+        <th scope="col">TEST NAME</th>
+      </tr>
+      {% for i in val %}
+      <tr>
+        <td>{{i.docId.fname}} {{i.docId.lname}}</td>
+        <td>{{i.patId.fname}} {{i.patId.lname}}</td>
+        <td>{{i.labtesId.name}}</td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+  <p>&nbsp;</p>
+</form>
+</body>
+<!--</html>-->
+{% endblock %}

@@ -1,0 +1,42 @@
+<!--<!doctype html>-->
+<!--<html>-->
+<!--<head>-->
+<!--<meta charset="utf-8">-->
+<!--<title>manageDoctors</title>-->
+<!--</head>-->
+{% extends 'hospitalIndex.html' %}
+{% block body %}
+<body>
+<form id="form1" name="form1" method="post">
+  <h1>MANAGE DOCTORS</h1>
+  <table width="200" border="1">
+    <tbody>
+      <tr>
+        <th scope="col">DOCTOR NAME</th>
+        <th scope="col">GENDER</th>
+        <th scope="col">PHONE</th>
+        <th scope="col">EMAIL</th>
+        <th scope="col">DEPARTMENT</th>
+        <th scope="col">&nbsp;</th>
+      </tr>
+      {% for i in val %}
+      <tr>
+        <td>{{i.fname}} {{i.lname}}</td>
+        <td>{{i.gender}}</td>
+        <td>{{i.phone}}</td>
+        <td>{{i.email}}</td>
+        <td>{{i.depId.depName}}</td>
+        <td><p><a href="{% url 'editDoctor' id=i.id %}">EDIT</a></p>
+        <p><a href="{% url 'delDoc' id=i.lid.id %}">DELETE</a></p></td>
+      </tr>
+      {% endfor %}
+      <tr>
+        <td colspan="7"><center><a href="addDoctor">ADD</a></center></td>
+      </tr>
+    </tbody>
+  </table>
+  <p>&nbsp;</p>
+</form>
+</body>
+<!--</html>-->
+{% endblock %}

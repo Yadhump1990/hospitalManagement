@@ -1,0 +1,59 @@
+<!--<!doctype html>-->
+<!--<html>-->
+<!--<head>-->
+<!--<meta charset="utf-8">-->
+<!--<title>SEARCH HOSPITAL</title>-->
+<!--</head>-->
+{% extends 'patientIndex.html' %}
+{% block body %}
+<body>
+<form id="form1" name="form1" method="post" action="search_hospital">
+  <h1>SEARCH HOSPITAL</h1>
+  <table width="200" border="1">
+    <tbody>
+      <tr>
+        <th scope="col">HOSPITAL NAME</th>
+        <th scope="col"><label for="select"></label>
+          <select name="select" id="select">
+            {% for i in val %}
+<!--            //to not show unverified hospital-->
+            {% if i.lid.type == 'hospital' %}
+              {% if i.id|stringformat:"s" == s|stringformat:"s" %}
+                  <option value="{{i.id}}" selected>{{i.hospitalname}}</option>
+              {% else %}
+                  <option value="{{i.id}}" >{{i.hospitalname}}</option>
+              {% endif %}
+            {% endif %}
+            {% endfor %}
+          </select></th>
+        <th scope="col"><input type="submit" name="submit" id="submit" value="SEARCH"></th>
+      </tr>
+    </tbody>
+  </table>
+  <p>&nbsp;</p>
+  <table width="200" border="1">
+    <tbody>
+      <tr>
+        <th scope="col">HOSPITAL NAME</th>
+        <th scope="col">ADDRESS</th>
+        <th scope="col">EMAIL</th>
+        <th scope="col">PHONE</th>
+        <th scope="col">&nbsp;</th>
+      </tr>
+      {% for i in val2 %}
+      <tr>
+        <td>{{i.hospitalname}}</td>
+        <td>{{i.place}} {{i.post}} {{i.pin}}</td>
+        <td>{{i.email}}</td>
+        <td>{{i.phone}}</td>
+        <td><p><a href="{% url 'viewDoctor' id=i.id %}">VIEW DOCTOR</a></p>
+        <p><a href="{% url 'viewFacility' id=i.id %}">VIEW FACILITIES</a></p></td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+  <p>&nbsp;</p>
+</form>
+</body>
+<!--</html>-->
+{% endblock %}

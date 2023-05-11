@@ -1,0 +1,62 @@
+<!--<!doctype html>-->
+<!--<html>-->
+<!--<head>-->
+<!--<meta charset="utf-8">-->
+<!--<title>EDIT_DOCTORS</title>-->
+<!--</head>-->
+{% extends 'hospitalIndex.html' %}
+{% block body %}
+<body>
+<form id="form1" name="form1" method="post" action="{% url 'updateDoctor' %}">
+  <h1>EDIT DOCTORS</h1>
+  <table width="375" border="1">
+    <tbody>
+      <tr>
+        <th width="110" scope="row">FIRST NAME</th>
+        <td width="249"><label for="textfield"></label>
+        <input type="text" name="fname" id="textfield" value="{{val.fname}}"></td>
+      </tr>
+      <tr>
+        <th scope="row">LAST NAME</th>
+        <td><input type="text" name="lname" id="textfield2" value="{{val.lname}}"></td>
+      </tr>
+      <tr>
+        <th scope="row">GENDER</th>
+        <td><input type="radio" name="radio" id="radio" value="MALE" {% if val.gender == 'MALE' %} checked{% endif %}>
+        <label for="radio">MALE
+          <input type="radio" name="radio" id="radio2" value="FEMALE" {% if val.gender == 'FEMALE' %} checked{% endif %}>
+        FEMALE
+        <input type="radio" name="radio" id="radio3" value="OTHERS" {% if val.gender == 'OTHERS' %} checked{% endif %}>OTHERS</label></td>
+      </tr>
+      <tr>
+        <th scope="row">PHONE</th>
+        <td><label for="tel"></label>
+        <input type="tel" name="tel" id="tel" value="{{val.phone}}"></td>
+      </tr>
+      <tr>
+        <th scope="row">EMAIL</th>
+        <td><label for="email"></label>
+        <input type="email" name="email" id="email" value="{{val.email}}"></td>
+      </tr>
+      <tr>
+        <th scope="row">DEPARTMENT</th>
+        <td><label for="select2"></label>
+          <select name="select2" id="select2">
+
+            <option  value="{{val.depId}}" disabled selected>{{val.depId.depName}}</option>
+            <option disabled>choose department from below</option>
+            {% for i in val2 %}
+            <option value="{{i.id}}">{{i.depName}}</option>
+            {% endfor %}
+        </select></td>
+      </tr>
+      <tr>
+        <th colspan="2" scope="row"><input type="submit" name="submit" id="submit" value="UPADTE"></th>
+      </tr>
+    </tbody>
+  </table>
+</form>
+</body>
+<!--</html>-->
+{% endblock %}
+

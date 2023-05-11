@@ -1,0 +1,70 @@
+<!--<!doctype html>-->
+<!--<html>-->
+<!--<head>-->
+<!--<meta charset="utf-8">-->
+<!--<title>AddFacility</title>-->
+<!--</head>-->
+{% extends 'hospitalIndex.html' %}
+{% block body %}
+<body>
+<form method="post" action="{% url 'updateFacilities' %}" enctype="multipart/form-data" name="form1" id="form1" >
+  <h1>EDIT FACILITY</h1>
+  <table width="200" border="1">
+    <tbody>
+      <tr>
+        <th scope="row">Facility Name:</th>
+        <td><label for="textfield"></label>
+        <input type="text" name="facname" id="textfield" value="{{val.name}}"></td>
+      </tr>
+      <tr>
+        <th scope="row">Description:</th>
+        <td><label for="textfield2"></label>
+        <input type="text" name="desc" id="textfield2" value="{{val.description}}"></td>
+      </tr>
+      <tr>
+        <th scope="row">IMAGE:</th>
+        <td><label for="fileField"></label>
+        <input type="file" name="fileField" id="fileField"><img src="{{val.image.url}}" width="100" height="100"/></td>
+      </tr>
+      <tr>
+        <th scope="row">CAPACITY:</th>
+        <td><label for="number"></label>
+        <input type="number" name="cap" id="number" value="{{val.capacity}}"></td>
+      </tr>
+      <tr>
+        <th scope="row">Availability:</th>
+        <td><label for="number2"></label>
+          <label for="select"></label>
+          <select name="select" id="select">
+            <option value="yes" {% if val.availability == 'yes' %} selected{% endif %}>YES</option>
+            <option value="no" {% if val.availability == 'no' %} selected{% endif %}>NO</option>
+        </select></td>
+      </tr>
+      <tr>
+        <th scope="row"><p>LOCATION(IN HOSPITAL)</p></th>
+        <td><label for="select2"></label>
+          <select name="select2" id="select2">
+            <option value="1st-floor room1" {% if val.location == '1st-floor room1' %} selected{% endif %}>1st floor room1</option>
+            <option value="1st-floor room2" {% if val.location == '1st-floor room2' %} selected{% endif %}>1st floor room2</option>
+            <option value="1st-floor room3" {% if val.location == '1st-floor room3' %} selected{% endif %}>1st floor room3</option>
+            <option value="1st-floor room4" {% if val.location == '1st-floor room4' %} selected{% endif %}>1st floor room4</option>
+            <option value="2nd-floor room1" {% if val.location == '2nd-floor room1' %} selected{% endif %}>2nd floor room1</option>
+            <option value="2nd-floor room2" {% if val.location == '2nd-floor room2' %} selected{% endif %}>2nd floor room2</option>
+            <option value="2nd-floor room3" {% if val.location == '2nd-floor room3' %} selected{% endif %}>2nd floor room3</option>
+            <option value="2nd-floor room4" {% if val.location == '2nd-floor room4' %} selected{% endif %}>2nd floor room4</option>
+            <option value="3rd-floor room1" {% if val.location == '3rd-floor room1' %} selected{% endif %}>3rd floor room1</option>
+            <option value="3rd-floor room2" {% if val.location == '3rd-floor room2' %} selected{% endif %}>3rd floor room2</option>
+            <option value="3rd-floor room3" {% if val.location == '3rd-floor room3' %} selected{% endif %}>3rd floor room3</option>
+            <option value="3rd-floor room4" {% if val.location == '3rd-floor room4' %} selected{% endif %}>3rd floor room4</option>
+        </select></td>
+      </tr>
+      <tr>
+        <th colspan="2" scope="row"><input type="submit" name="submit" id="submit" value="UPDATE"></th>
+      </tr>
+    </tbody>
+  </table>
+  <p>&nbsp;</p>
+</form>
+</body>
+<!--</html>-->
+{% endblock %}

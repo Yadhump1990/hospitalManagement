@@ -1,0 +1,59 @@
+<!--<!doctype html>-->
+<!--<html>-->
+<!--<head>-->
+<!--<meta charset="utf-8">-->
+<!--<title>VIEW&amp;DOWLOAD_PRESCRIPTION</title>-->
+<!--  <style>-->
+<!--    table {-->
+<!--    border-collapse: collapse;-->
+<!--    width: 100%;-->
+<!--    margin-top: 20px;-->
+<!--}-->
+
+<!--th, td {-->
+<!--    text-align: left;-->
+<!--    padding: 8px;-->
+<!--}-->
+
+<!--th {-->
+<!--    background-color: #4CAF50;-->
+<!--    color: white;-->
+<!--}-->
+
+<!--tr:nth-child(even){background-color: #f2f2f2}-->
+
+<!--img {-->
+<!--    max-width: 100px;-->
+<!--}-->
+<!--  </style>-->
+<!--</head>-->
+{% extends 'patientIndex.html' %}
+{% block body %}
+<body>
+  <h1>VIEW &amp; DOWNLOAD PRESCRIPTION</h1>
+  <table width="200" border="1">
+    <tbody>
+      <tr>
+        <th scope="col">DOCTOR NAME</th>
+        <th scope="col">DIAGNOSIS</th>
+        <th scope="col">MEDICATION</th>
+        <th scope="col">IMAGE</th>
+        <th scope="col">DOSAGE</th>
+        <th scope="col">&nbsp;</th>
+      </tr>
+      {% for prescription in prescriptions %}
+        <tr>
+          <td>{{ prescription.docId.fname }} {{ prescription.docId.lname }}</td>
+          <td>{{ prescription.diagnosis }}</td>
+          <td>{{ prescription.medication }}</td>
+          <td><img src="{{ prescription.image.url }}" alt="prescription image" width="100" height="100"/></td>
+          <td>{{ prescription.dosage }}</td>
+          <td><a href="{% url 'download_prescription' prescription.id %}">Download</a></td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  <p>&nbsp;</p>
+</body>
+<!--</html>-->
+{% endblock %}

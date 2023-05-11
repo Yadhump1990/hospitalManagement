@@ -1,0 +1,44 @@
+<!--<!doctype html>-->
+<!--<html>-->
+<!--<head>-->
+<!--<meta charset="utf-8">-->
+<!--<title>Block/Unblock Hospital</title>-->
+<!--</head>-->
+{% extends 'AdminIndex_inner.html' %}
+{% block body %}
+<body>
+<form id="form1" name="form1" method="post">
+  <h1>BLOCK/UNBLOCK HOSPITAL</h1>
+  <table width="200" border="1">
+    <tbody>
+      <tr>
+        <th scope="col">HOSPITAL NAME</th>
+        <th scope="col">ADDRESS</th>
+        <th scope="col">EMAIL</th>
+        <th scope="col">PHONE</th>
+        <th scope="col">&nbsp;</th>
+      </tr>
+      <tr>
+        {% for i in val %}
+        <td>{{i.hospitalname}}</td>
+        <td>{{i.place}} {{i.post}} {{i.pin}}</td>
+        <td>{{i.email}}</td>
+        <td>{{i.phone}}</td>
+        <td>
+          {% if i.lid.type == 'rejected' %}
+          rejected
+          {% elif i.lid.type == 'hospital' %}
+          <p><a href="{% url 'blockHospital' id=i.lid.id %}">BLOCK</a></p>
+          {% else %}
+          <p><a href="{% url 'unblockHospital' id=i.lid.id %}">UNBLOCK</a></p>
+          {% endif %}
+        </td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+  <p>&nbsp;</p>
+</form>
+</body>
+<!--</html>-->
+{% endblock %}

@@ -1,0 +1,26 @@
+<!--<!doctype html>-->
+<!--<html>-->
+<!--<head>-->
+<!--<meta charset="utf-8">-->
+<!--<title>sendComReply</title>-->
+<!--</head>-->
+{% extends 'AdminIndex_inner.html' %}
+{% block body %}
+<body>
+<form id="form1" name="form1" method="post" action="{% url 'send_Reply_Comp' %}">
+  <h1>SEND REPLY</h1>
+  <table width="200" border="1">
+    <tbody>
+      <tr>
+        <th scope="col"><label for="textarea"></label>
+        <textarea name="textarea" id="textarea"></textarea></th>
+      </tr>
+      <tr>
+	    <td><center><input type="submit" name="submit" id="submit" value="send"></center></td>
+      </tr>
+    </tbody>
+  </table>
+</form>
+</body>
+<!--</html>-->
+{% endblock %}

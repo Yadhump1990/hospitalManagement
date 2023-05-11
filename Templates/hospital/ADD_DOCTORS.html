@@ -1,0 +1,92 @@
+<!--<!doctype html>-->
+<!--<html>-->
+<!--<head>-->
+<!--<meta charset="utf-8">-->
+<!--<title>ADD_DOCTORS</title>-->
+<!--</head>-->
+{% extends 'hospitalIndex.html' %}
+{% block body %}
+<body>
+<form id="form1" name="form1" method="post" action="add_doctor">
+  <h1>ADD DOCTORS</h1>
+  <table width="375" border="1">
+    <tbody>
+      <tr>
+        <th width="110" scope="row">FIRST NAME</th>
+        <td width="249"><label for="textfield"></label>
+        <input type="text" name="fname" id="textfield"></td>
+      </tr>
+      <tr>
+        <th scope="row">LAST NAME</th>
+        <td><input type="text" name="lname" id="textfield2"></td>
+      </tr>
+      <tr>
+        <th scope="row">GENDER</th>
+        <td><input type="radio" name="radio" id="radio" value="MALE">
+        <label for="radio">MALE
+          <input type="radio" name="radio" id="radio2" value="FEMALE">
+        FEMALE 
+        <input type="radio" name="radio" id="radio3" value="OTHER">OTHERS</label></td>
+      </tr>
+      <tr>
+        <th scope="row">PHONE</th>
+        <td><label for="tel"></label>
+        <input type="tel" name="tel" id="tel"></td>
+      </tr>
+      <tr>
+        <th scope="row">EMAIL</th>
+        <td><label for="email"></label>
+        <input type="email" name="email" id="email"></td>
+      </tr>
+      <tr>
+        <th scope="row">DEPARTMENT</th>
+        <td><label for="select2"></label>
+          <select name="dep" id="select2">
+            {% for i in val %}
+            <option value="{{i.id}}">{{i.depName}}</option>
+            {% endfor %}
+        </select></td>
+      </tr>
+      <tr>
+        <th scope="row">USERNAME</th>
+        <td><label for="textfield"></label>
+        <input type="text" name="uname" id="textfield5"><p id="message"></p></td>
+      </tr>
+      <tr>
+        <th scope="row">PASSWORD</th>
+        <td><label for="password"></label>
+        <input type="password" name="password" id="password"></td>
+      </tr>
+      <tr>
+        <th colspan="2" scope="row"><input type="submit" name="submit" id="submit" value="ADD"></th>
+      </tr>
+    </tbody>
+  </table>
+</form>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+  $("#textfield5").keyup(function(){
+    var uname;
+    uname = $(this).val();
+
+    $.ajax({
+        type: "GET",
+        url: "/docExist",
+        data: {
+            uname: uname
+        },
+        success: function(data) {
+            if (data.is_taken) {
+                $('#message').text(data.error_message);
+            } else {
+                $('#message').text("");
+            }
+        }
+    });
+});
+});
+</script>
+<!--</html>-->
+{% endblock %}

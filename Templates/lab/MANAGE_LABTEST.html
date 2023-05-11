@@ -1,0 +1,40 @@
+<!--<!doctype html>-->
+<!--<html>-->
+<!--<head>-->
+<!--<meta charset="utf-8">-->
+<!--<title>MANAGE_LAB_TEST</title>-->
+<!--</head>-->
+{% extends 'labIndex.html' %}
+{% block body %}
+<body>
+<form id="form1" name="form1" method="post">
+  <h1>MANAGE LAB TEST</h1>
+  <table width="200" border="1">
+    <tbody>
+      <tr>
+        <th scope="col">LAB NAME</th>
+        <th scope="col">TEST NAME</th>
+        <th scope="col">DESCRIPTION</th>
+        <th scope="col">PHONE</th>
+        <th scope="col">EMAIL</th>
+        <th scope="col">&nbsp;</th>
+      </tr>
+      {% for i in val %}
+      <tr>
+        <td>{{i.labId.name}}</td>
+        <td>{{i.name}}</td>
+        <td>{{i.description}}</td>
+        <td>{{i.contact}}</td>
+        <td>{{i.email}}</td>
+        <td><a href="{% url 'delLabtest' id=i.id  %}">DELETE</a></td>
+      </tr>
+      {% endfor %}
+      <tr>
+        <td colspan="6"><CENTER><a href="addLabTest">ADD</a></CENTER></td>
+      </tr>
+    </tbody>
+  </table>
+</form>
+</body>
+<!--</html>-->
+{% endblock %}
