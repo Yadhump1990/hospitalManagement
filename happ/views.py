@@ -28,7 +28,7 @@ from happ.models import *
 
 
 def main(request):
-    return render(request, '/index.html')
+    return render(request, '/loginIndex.html')
 
 
 def hospitalReg(request):
