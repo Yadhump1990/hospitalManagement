@@ -1,9 +1,5 @@
-<!doctype html>
-<html>
-<head>
-<meta charset="utf-8">
-<title>Untitled Document</title>
-</head>
+{% extends 'doctorIndex.html' %}
+{% block body %}
 
 <body>
 <form id="form1" name="form1" method="post">
@@ -16,15 +12,17 @@
         <th scope="col">LabTest Name</th>
         <th scope="col">Date</th>
       </tr>
+      {% for i in val %}
       <tr>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
+        <td>{{i.patId.fname}} {{i.patId.lname}}</td>
+        <td>{{i.labtesId.labId.name}}</td>
+        <td>i.labtestId.name</td>
         <td>&nbsp;</td>
       </tr>
+    {% endfor %}
     </tbody>
   </table>
   <p>&nbsp;</p>
 </form>
 </body>
-</html>
+{% endblock %}

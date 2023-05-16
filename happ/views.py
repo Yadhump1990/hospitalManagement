@@ -1077,8 +1077,9 @@ def suggestLabAndLabtest(request):
     return render(request, 'doctor/SUGGEST_LAB_LABTEST.html',{'val1':pob,'val3':ltob})
 
 def viewSuggestedLabsAndLt(request):
-
-    return render(request,"/viewSuggestedLabs&Labtest.html")
+    did = doctor.objects.get(lid__id=request.session['lid'])
+    ob = suggest.objects.filter(docId=did)
+    return render(request,'doctor/viewSuggestedLabs&Labtest.html',{'val':ob})
 
 @login_required(login_url='/') #for login authentication
 def suggestbtn(request):
