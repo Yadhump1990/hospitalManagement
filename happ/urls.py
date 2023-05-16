@@ -103,6 +103,7 @@ urlpatterns=[
     path('delPresc/<int:id>', views.delPresc, name='delPresc'),
     path('uploadPrescription', views.uploadPrescription, name='uploadPrescription'),
     path('suggestLabAndLabtest', views.suggestLabAndLabtest, name='suggestLabAndLabtest'),
+    path('viewSuggestedLabsAndLt', views.viewSuggestedLabsAndLt, name='viewSuggestedLabsAndLt'),
     path('suggestbtn', views.suggestbtn, name='suggestbtn'),
     path('viewReportToDoc', views.viewReportToDoc, name='viewReportToDoc'),
 

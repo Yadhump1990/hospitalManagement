@@ -1076,6 +1076,10 @@ def suggestLabAndLabtest(request):
     pprint("//////////////////////////////")
     return render(request, 'doctor/SUGGEST_LAB_LABTEST.html',{'val1':pob,'val3':ltob})
 
+def viewSuggestedLabsAndLt(request):
+
+    return render(request,"viewSuggestedLabs&Labtest.html")
+
 @login_required(login_url='/') #for login authentication
 def suggestbtn(request):
     patid = request.POST['select']
