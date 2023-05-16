@@ -1078,7 +1078,7 @@ def suggestLabAndLabtest(request):
 
 def viewSuggestedLabsAndLt(request):
 
-    return render(request,"viewSuggestedLabs&Labtest.html")
+    return render(request,"/viewSuggestedLabs&Labtest.html")
 
 @login_required(login_url='/') #for login authentication
 def suggestbtn(request):
